@@ -4,6 +4,7 @@ namespace Equip\Project\Domain;
 
 use Equip\Adr\DomainInterface;
 use Equip\Adr\PayloadInterface;
+use Wheniwork\Login\Handler\AuthHandler;
 
 class Hello implements DomainInterface
 {
@@ -25,16 +26,10 @@ class Hello implements DomainInterface
      */
     public function __invoke(array $input)
     {
-        $name = 'world';
-
-        if (!empty($input['name'])) {
-            $name = $input['name'];
-        }
+        $claims = $input[AuthHandler::TOKEN_ATTRIBUTE]->getClaims();
 
         return $this->payload
             ->withStatus(PayloadInterface::STATUS_OK)
-            ->withOutput([
-                'hello' => $name,
-            ]);
+            ->withOutput($claims);
     }
 }

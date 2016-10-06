@@ -16,8 +16,35 @@
     },
     "require": {
         "equip/framework": "^2.0",
-        "josegonzalez/dotenv": "^2.0",
+        "josegonzalez/dotenv": "^1.0",
         "monolog/monolog": "^1.19",
-        "zendframework/zend-diactoros": "^1.0.4"
-    }
+        "zendframework/zend-diactoros": "^1.0.4",
+        "wheniwork/login-service": "^2.3"
+    },
+    "repositories": [
+        {
+            "url": "git@github.com:wheniwork/api-configuration.git",
+            "type": "vcs"
+        },
+        {
+            "url": "git@github.com:wheniwork/api-data-layer.git",
+            "type": "vcs"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:wheniwork/contracts.git"
+        },
+        {
+            "url": "git@github.com:wheniwork/jwt-auth.git",
+            "type": "vcs"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:wheniwork/login-service.git"
+        },
+        {
+            "url": "git@github.com:wheniwork/pdo.git",
+            "type": "vcs"
+        }
+    ]
 }
