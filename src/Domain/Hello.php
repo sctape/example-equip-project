@@ -4,7 +4,7 @@ namespace Equip\Project\Domain;
 
 use Equip\Adr\DomainInterface;
 use Equip\Adr\PayloadInterface;
-use Wheniwork\Login\Handler\AuthHandler;
+use Wheniwork\Auth\Command\FetchUser;
 
 class Hello implements DomainInterface
 {
@@ -14,11 +14,18 @@ class Hello implements DomainInterface
     private $payload;
 
     /**
-     * @param PayloadInterface $payload
+     * @var FetchUser
      */
-    public function __construct(PayloadInterface $payload)
+    private $fetch_user;
+
+    /**
+     * @param PayloadInterface $payload
+     * @param FetchUser $fetch_user
+     */
+    public function __construct(PayloadInterface $payload, FetchUser $fetch_user)
     {
         $this->payload = $payload;
+        $this->fetch_user = $fetch_user;
     }
 
     /**
@@ -26,10 +33,10 @@ class Hello implements DomainInterface
      */
     public function __invoke(array $input)
     {
-        $claims = $input[AuthHandler::TOKEN_ATTRIBUTE]->getClaims();
+        $user = $this->fetch_user->withOptions($input)->execute();
 
         return $this->payload
             ->withStatus(PayloadInterface::STATUS_OK)
-            ->withOutput($claims);
+            ->withOutput($user->toArray());
     }
 }
