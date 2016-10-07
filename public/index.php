@@ -27,6 +27,7 @@ Equip\Application::build()
     Equip\Handler\JsonContentHandler::class,
     Equip\Handler\FormContentHandler::class,
     Wheniwork\Login\Handler\AuthHandler::class,
+    Equip\Project\Middleware\FetchRequestUser::class,
     Equip\Handler\ActionHandler::class,
 ])
 ->setRouting(function (Equip\Directory $directory) {
