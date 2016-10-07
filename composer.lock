@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "354f9bf9e436f1b9279a5213e1281086",
-    "content-hash": "a27525632437d0b7c31019d2bd3394ab",
+    "hash": "da802e0aae97d1854fb4891af247f082",
+    "content-hash": "e047244579b8fed0e09c92b0ef8f881a",
     "packages": [
         {
             "name": "aura/sql",
@@ -123,6 +123,65 @@
                 "update"
             ],
             "time": "2016-09-02 22:10:12"
+        },
+        {
+            "name": "beberlei/assert",
+            "version": "v2.6.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/beberlei/assert.git",
+                "reference": "ebab3d93e5f8f1ef95e016970ef149b4ad5ac024"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/beberlei/assert/zipball/ebab3d93e5f8f1ef95e016970ef149b4ad5ac024",
+                "reference": "ebab3d93e5f8f1ef95e016970ef149b4ad5ac024",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "@stable"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.5-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Assert": "lib/"
+                },
+                "files": [
+                    "lib/Assert/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Benjamin Eberlei",
+                    "email": "kontakt@beberlei.de",
+                    "role": "Lead Developer"
+                },
+                {
+                    "name": "Richard Quadling",
+                    "email": "rquadling@gmail.com",
+                    "role": "Collaborator"
+                }
+            ],
+            "description": "Thin assertion library for input validation in business models.",
+            "keywords": [
+                "assert",
+                "assertion",
+                "validation"
+            ],
+            "time": "2016-10-03 10:58:03"
         },
         {
             "name": "equip/adr",
@@ -945,6 +1004,57 @@
                 "views"
             ],
             "time": "2015-07-09 02:14:40"
+        },
+        {
+            "name": "league/tactician",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/tactician.git",
+                "reference": "1f3aaad497f07a8bef147a37c7e3f2f7c23fcd21"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/tactician/zipball/1f3aaad497f07a8bef147a37c7e3f2f7c23fcd21",
+                "reference": "1f3aaad497f07a8bef147a37c7e3f2f7c23fcd21",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9",
+                "phpunit/phpunit": "~4.3",
+                "squizlabs/php_codesniffer": "~2.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\Tactician\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ross Tuck",
+                    "homepage": "http://tactician.thephpleague.com"
+                }
+            ],
+            "description": "A small, flexible command bus. Handy for building service layers.",
+            "keywords": [
+                "command",
+                "command bus",
+                "service layer"
+            ],
+            "time": "2016-02-20 11:14:36"
         },
         {
             "name": "lukasoppermann/http-status",
@@ -2099,16 +2209,16 @@
         },
         {
             "name": "wheniwork/api-configuration",
-            "version": "1.2.0",
+            "version": "dev-feature/tactician-configuration",
             "source": {
                 "type": "git",
                 "url": "git@github.com:wheniwork/api-configuration.git",
-                "reference": "95b0d88df72dfee970093c260ed3ba2ce9f87ffc"
+                "reference": "43ab6cae350908a743191bd940f8e3421c7b219f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wheniwork/api-configuration/zipball/95b0d88df72dfee970093c260ed3ba2ce9f87ffc",
-                "reference": "95b0d88df72dfee970093c260ed3ba2ce9f87ffc",
+                "url": "https://api.github.com/repos/wheniwork/api-configuration/zipball/43ab6cae350908a743191bd940f8e3421c7b219f",
+                "reference": "43ab6cae350908a743191bd940f8e3421c7b219f",
                 "shasum": ""
             },
             "require": {
@@ -2116,11 +2226,15 @@
             },
             "require-dev": {
                 "josegonzalez/dotenv": "^1",
+                "league/tactician": "^1.0",
                 "monolog/monolog": "^1.19",
                 "sentry/sentry": "^0.21.2"
             },
             "suggest": {
-                "phpunit/phpunit": "Install phpunit globally to run tests"
+                "league/tactician": "Install tactician to use TacticianConfiguration",
+                "monolog/monolog": "Install monolog to use MonologConfiguration",
+                "phpunit/phpunit": "Install phpunit globally to run tests",
+                "sentry/sentry": "Install sentry to use MonologRavenConfiguration"
             },
             "type": "library",
             "autoload": {
@@ -2138,10 +2252,10 @@
             ],
             "description": "Commonly needed Equip configurations",
             "support": {
-                "source": "https://github.com/wheniwork/api-configuration/tree/1.2.0",
+                "source": "https://github.com/wheniwork/api-configuration/tree/feature/tactician-configuration",
                 "issues": "https://github.com/wheniwork/api-configuration/issues"
             },
-            "time": "2016-07-27 16:36:41"
+            "time": "2016-09-06 14:10:16"
         },
         {
             "name": "wheniwork/api-data-layer",
@@ -2581,9 +2695,18 @@
         }
     ],
     "packages-dev": [],
-    "aliases": [],
+    "aliases": [
+        {
+            "alias": "1.2",
+            "alias_normalized": "1.2.0.0",
+            "version": "dev-feature/tactician-configuration",
+            "package": "wheniwork/api-configuration"
+        }
+    ],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "wheniwork/api-configuration": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

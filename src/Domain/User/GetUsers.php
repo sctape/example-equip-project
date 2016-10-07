@@ -4,10 +4,11 @@ namespace Equip\Project\Domain\User;
 
 use Equip\Adr\DomainInterface;
 use Equip\Adr\PayloadInterface;
+use Equip\Project\Command\FetchUsersCommand;
 use Equip\Project\Transformer\UserTransformer;
 use League\Fractal\Manager;
 use League\Fractal\Resource\Collection;
-use Wheniwork\Contract\User\UserRepositoryInterface;
+use League\Tactician\CommandBus;
 
 class GetUsers implements DomainInterface
 {
@@ -17,9 +18,9 @@ class GetUsers implements DomainInterface
     private $payload;
 
     /**
-     * @var UserRepositoryInterface
+     * @var CommandBus
      */
-    private $users;
+    private $bus;
 
     /**
      * @var UserTransformer
@@ -33,18 +34,18 @@ class GetUsers implements DomainInterface
 
     /**
      * @param PayloadInterface $payload
-     * @param UserRepositoryInterface $users
+     * @param CommandBus $bus
      * @param UserTransformer $transformer
      * @param Manager $fractal
      */
     public function __construct(
         PayloadInterface $payload,
-        UserRepositoryInterface $users,
+        CommandBus $bus,
         UserTransformer $transformer,
         Manager $fractal
     ) {
         $this->payload = $payload;
-        $this->users = $users;
+        $this->bus = $bus;
         $this->transformer = $transformer;
         $this->fractal = $fractal;
     }
@@ -60,7 +61,7 @@ class GetUsers implements DomainInterface
     {
         $user = $input['user'];
 
-        $users = $this->users->findBy(['account_id' => $user->account_id]);
+        $users = $this->bus->handle(new FetchUsersCommand($user->account_id));
 
         $output = $this->fractal->createData(new Collection($users, $this->transformer))->toArray();
 

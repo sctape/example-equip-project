@@ -19,6 +19,7 @@ Equip\Application::build()
     Equip\Configuration\WhoopsConfiguration::class,
     Wheniwork\Login\Configuration\AuthConfigurationSet::class,
     Equip\Project\Configuration\AppConfiguration::class,
+    Wheniwork\Configuration\Tactician\TacticianConfiguration::class,
 ])
 ->setMiddleware([
     Relay\Middleware\ResponseSender::class,
