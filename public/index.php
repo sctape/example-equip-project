@@ -35,6 +35,7 @@ Equip\Application::build()
         ->get('/', Domain\Welcome::class)
         ->get('/hello[/{name}]', Domain\Hello::class)
         ->post('/hello[/{name}]', Domain\Hello::class)
+        ->get('/users', Domain\User\GetUsers::class)
         ; // End of routing
 })
 ->run();
