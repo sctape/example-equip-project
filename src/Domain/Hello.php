@@ -4,7 +4,6 @@ namespace Equip\Project\Domain;
 
 use Equip\Adr\DomainInterface;
 use Equip\Adr\PayloadInterface;
-use Wheniwork\Auth\Command\FetchUser;
 
 class Hello implements DomainInterface
 {
@@ -14,18 +13,11 @@ class Hello implements DomainInterface
     private $payload;
 
     /**
-     * @var FetchUser
-     */
-    private $fetch_user;
-
-    /**
      * @param PayloadInterface $payload
-     * @param FetchUser $fetch_user
      */
-    public function __construct(PayloadInterface $payload, FetchUser $fetch_user)
+    public function __construct(PayloadInterface $payload)
     {
         $this->payload = $payload;
-        $this->fetch_user = $fetch_user;
     }
 
     /**
@@ -33,10 +25,12 @@ class Hello implements DomainInterface
      */
     public function __invoke(array $input)
     {
-        $user = $this->fetch_user->withOptions($input)->execute();
+        $user = $input['user'];
+
+        $output = $user ? $user->toArray() : [];
 
         return $this->payload
             ->withStatus(PayloadInterface::STATUS_OK)
-            ->withOutput($user->toArray());
+            ->withOutput($output);
     }
 }
