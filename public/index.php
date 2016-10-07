@@ -28,6 +28,7 @@ Equip\Application::build()
     Equip\Handler\FormContentHandler::class,
     Wheniwork\Login\Handler\AuthHandler::class,
     Equip\Project\Middleware\FetchRequestUser::class,
+    Equip\Project\Middleware\AuthUserFilter::class,
     Equip\Handler\ActionHandler::class,
 ])
 ->setRouting(function (Equip\Directory $directory) {
