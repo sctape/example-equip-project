@@ -19,7 +19,8 @@
         "josegonzalez/dotenv": "^1.0",
         "monolog/monolog": "^1.19",
         "zendframework/zend-diactoros": "^1.0.4",
-        "wheniwork/login-service": "^2.3"
+        "wheniwork/login-service": "^2.3",
+        "league/fractal": "^0.14.0"
     },
     "repositories": [
         {
