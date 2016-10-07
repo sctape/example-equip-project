@@ -23,7 +23,8 @@
         "league/fractal": "^0.14.0",
         "league/tactician": "^1.0",
         "wheniwork/api-configuration": "dev-feature/tactician-configuration as 1.2",
-        "beberlei/assert": "^2.6"
+        "beberlei/assert": "^2.6",
+        "sentry/sentry": "^1.5"
     },
     "repositories": [
         {
