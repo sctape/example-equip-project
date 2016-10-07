@@ -18,6 +18,7 @@ Equip\Application::build()
     Equip\Configuration\RelayConfiguration::class,
     Equip\Configuration\WhoopsConfiguration::class,
     Wheniwork\Login\Configuration\AuthConfigurationSet::class,
+    Equip\Project\Configuration\AppConfiguration::class,
 ])
 ->setMiddleware([
     Relay\Middleware\ResponseSender::class,
