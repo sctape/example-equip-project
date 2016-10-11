@@ -1,0 +1,105 @@
+FORMAT: 1A
+HOST: https://example.wheniwork.com
+
+# Equip Sample API
+
+# Group User
+
+## Users [/users]
+
+### List Users [GET]
+List all users in your account
+
++ Request (application/json)
+    + Headers
+
+            W-Token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhcHAiOjEsImxvZ2luIjoxLCJpYXQiOjE0NzUxNjYyNjIsImp0aSI6IjRjODAyNDVmLTFjZTUtNTFhMy04ZDFkLTc0M2NiMDg0ZTZjNyJ9.XNn4c-48UEsexW35yE72et10RG3rqQA-2WFr7-fSWCU
+            W-UserId: 1
+            Accept: application/json
+
++ Response 200 (application/json)
+
+        {
+            "data": [
+                {
+                    "id": 1,
+                    "login_id": 1,
+                    "account_id": 1,
+                    "first_name": "Lloyd",
+                    "last_name": "Borer",
+                    "role": "Account Holder"
+                },
+                {
+                    "id": 2,
+                    "login_id": 0,
+                    "account_id": 1,
+                    "first_name": "Hilton",
+                    "last_name": "Gleason",
+                    "role": "Manager"
+                },
+                {
+                    "id": 3,
+                    "login_id": 0,
+                    "account_id": 1,
+                    "first_name": "Parker",
+                    "last_name": "Walter",
+                    "role": "Manager"
+                },
+                {
+                    "id": 4,
+                    "login_id": 2,
+                    "account_id": 1,
+                    "first_name": "Faustino",
+                    "last_name": "Rempel",
+                    "role": null
+                },
+                {
+                    "id": 5,
+                    "login_id": 2,
+                    "account_id": 1,
+                    "first_name": "Nichole",
+                    "last_name": "Braun",
+                    "role": null
+                },
+                {
+                    "id": 6,
+                    "login_id": 3,
+                    "account_id": 1,
+                    "first_name": "Shirley",
+                    "last_name": "Casper",
+                    "role": "Employee"
+                },
+                {
+                    "id": 7,
+                    "login_id": 0,
+                    "account_id": 1,
+                    "first_name": "Katarina",
+                    "last_name": "Bradtke",
+                    "role": "Employee"
+                },
+                {
+                    "id": 8,
+                    "login_id": 0,
+                    "account_id": 1,
+                    "first_name": "Berry",
+                    "last_name": "Kuhn",
+                    "role": "Employee"
+                },
+                {
+                    "id": 9,
+                    "login_id": 0,
+                    "account_id": 1,
+                    "first_name": "Danika",
+                    "last_name": "Wisoky",
+                    "role": "Employee"
+                },
+                {
+                    "id": 10,
+                    "login_id": 0,
+                    "account_id": 1,
+                    "first_name": "Jovany",
+                    "last_name": "Daniel",
+                    "role": "Employee"
+                }
+            ]
+        }
